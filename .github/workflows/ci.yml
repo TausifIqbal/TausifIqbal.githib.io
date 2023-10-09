@@ -37,12 +37,14 @@ jobs:
         run: |
             echo "${pwd}"
             pwd
-      - name: Setup Pages
-        uses: actions/configure-pages@v3
-      
       - name: get branch name
         run: |
             echo branch name ${GITHUB_REF##*/}
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+      
+
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
