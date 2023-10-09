@@ -36,7 +36,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
-            path: /home/runner/work/TausifIqbal.githib.io/TausifIqbal.githib.io/docs/index.html
+            path: '.'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
