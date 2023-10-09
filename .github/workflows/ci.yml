@@ -3,11 +3,6 @@ name: My CI/CD Workflow
 on:
   push:
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-  
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -25,6 +20,12 @@ jobs:
                 echo "Testing code"
 
   deploy:
+    needs: build
+
+    permissions:
+      pages: write
+      id-token: write
+      
     environment:
       name: github-pages
       url: ${{steps.deployment.outputs.page_url}}
