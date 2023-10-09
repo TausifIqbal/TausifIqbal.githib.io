@@ -3,7 +3,7 @@ name: My CI/CD Workflow
 on:
   push:
     branches: 
-        - main
+        - master
 
 jobs:
   build:
@@ -13,6 +13,10 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Build and Test
+      - name: Build
         run: |
-                echo "Build and test your code here."
+                echo "Building code."
+
+      - name: Deploying
+        run: |
+                echo "Deploying code."
