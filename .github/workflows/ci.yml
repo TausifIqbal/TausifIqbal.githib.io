@@ -41,13 +41,16 @@ jobs:
         run: |
             echo branch name ${GITHUB_REF##*/}
 
-
+      
       
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
-            path: '.'
-      - name: Deploy to GitHub Pages
+            path: './docs/index.html'
+      - name: Deploy to GH Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: peaceiris/actions-gh-pages@v3.9.3
+        with:
+           github_token: ${{secrets.GITHUB_TOKEN}}
+           publish_dir: ./docs
